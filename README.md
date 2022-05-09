@@ -161,3 +161,20 @@ function App() {
 
 - 컴포넌트 함수에서 따로 가공하지 않고, 단순히 보여주기만 할 경우에는 children prop을 활용하는 것이 좋다.
 - children prop은 문자열 뿐 아니라 다른 컴포넌트나 html 태그도 작성할 수 있다.
+
+## 22. state
+
+- state는 리액트에서 화면을 변경할 때 사용하는 핵심개념
+- useState 함수를 먼저 import 한다.
+- 이 함수는 state와 setter함수를 배열로 리턴하기 때문에 destructuring 문법으로 작성
+- state는 직접 변경할 수 없고 setter함수를 통해서만 변경가능하기 때문에 const 키워드로 state를 만든다.
+
+```
+function App() {
+  const [num, setNum] = useState(1);
+
+  const handleRollClick = () => {
+    const nextNum = random(6);
+    setNum(nextNum);
+  };
+```
