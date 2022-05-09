@@ -87,3 +87,27 @@ function Dice() {
 
 - 리액트 컴포넌트는 대문자로 시작하는 함수를 만들고, jsx 문법을 사용한 리액트 엘리먼트를 리턴하면 리액트 컴포넌트를 만들 수 있다.
 - 컴포넌트를 사용하면 사용목적에 따라 코드를 세분화하고 재사용하기 좋다.
+
+## 15.Props
+
+- props는 컴포넌트의 properties(속성)을 의미한다.
+- 아래와 같이 적으면 색상이 변하지 않고, 컴포넌트의 props값으로 전달된다.
+  `<Dice color="blue"/>`
+- props를 지정하면 App에서 작성한 글자에 맞는 색상을 dice 컴포넌트에서 변경할 수 있다.
+
+```
+function Dice(props) {
+  const diceImg = props.color === "red" ? diceRed01 : diceBlue01;
+  return <img src={diceImg} alt="주사위" />;
+}
+```
+
+- props로 두개의 인자를 받을때는 {}를 사용하며, 디폴트 값을 입력해줄 수 있다.
+
+```
+function Dice({ color = "blue", num = 1 }) {
+  const src = DICE_IMAGES[color][num - 1];
+  const alt = `${color} ${num}`;
+  return <img src={src} alt={alt} />;
+}
+```
