@@ -111,3 +111,53 @@ function Dice({ color = "blue", num = 1 }) {
   return <img src={src} alt={alt} />;
 }
 ```
+
+## 18. children
+
+- react에서 단순히 보여지기만 하는 값을 다룰때는 props를 활용하는 것 보다 children을 활용하는 것이 코드를 직관적으로 구성하는데 도움을 준다.
+- props로 전달하는 경우
+
+```
+function Button({ text }) {
+  return <button>{text}</button>;
+}
+```
+
+```
+function App() {
+  return (
+    <div>
+      <div>
+        <Button text="던지기" />
+        <Button text="처음부터" />
+      </div>
+      <Dice color="red" num={4} />
+    </div>
+  );
+}
+```
+
+- children으로 전달하는 경우
+
+```
+function Button({ children }) {
+  return <button>{children}</button>;
+}
+```
+
+```
+function App() {
+  return (
+    <div>
+      <div>
+        <Button>던지기</Button>
+        <Button>처음부터</Button>
+      </div>
+      <Dice color="red" num={4} />
+    </div>
+  );
+}
+```
+
+- 컴포넌트 함수에서 따로 가공하지 않고, 단순히 보여주기만 할 경우에는 children prop을 활용하는 것이 좋다.
+- children prop은 문자열 뿐 아니라 다른 컴포넌트나 html 태그도 작성할 수 있다.
