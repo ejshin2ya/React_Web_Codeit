@@ -211,3 +211,55 @@ function Board({ name, color, num, sum, gameHistory }) {
   );
 }
 ```
+
+## 33. 인라인 스타일
+
+- style을 객체형태로 만들어서 적용할 수 있다.
+
+```
+const style = {
+  padding: "14px 27px",
+  border: "solid 1px #7090ff",
+  outline: "none",
+  color: "#7090ff",
+  cursor: "pointer",
+  backgroundColor: "rgba(0, 89, 255, 0.2)",
+  borderRadius: "30px",
+  fontSize: "17px",
+};
+function Button({ children, onClick }) {
+  return (
+    <button style={style} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+```
+
+- style을 변경하기 위해 props 활용
+
+```
+const baseButtonStyle = {
+  padding: "14px 27px",
+  borderRadius: "30px",
+  outline: "none",
+  cursor: "pointer",
+  fontSize: "17px",
+};
+
+const blueButtonStyle = {
+  ...baseButtonStyle,
+  backgroundColor: "rgba(0, 89, 255, 0.2)",
+  border: "solid 1px #7090ff",
+  color: "#7090ff",
+};
+
+function Button({ children, onClick, color }) {
+  const style = color === "red" ? redButtonStyle : blueButtonStyle;
+  return (
+    <button style={style} onClick={onClick}>
+      {children}
+    </button>
+  );
+}
+```
