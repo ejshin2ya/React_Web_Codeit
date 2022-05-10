@@ -190,3 +190,24 @@ function App() {
 ```
 setGameHistory([...gameHistory, nextNum]);
 ```
+
+## 30. 컴포넌트 재사용하기
+
+- 기존에 app컴포넌트에서 만들었던 주사위 기능을 두개로 만들어서 재사용
+- 자식 컴포넌트의 state를 부모 컴포넌트로 올려주는 것을 state lifting 이라고 한다.
+- board라는 자식 컴포넌트는 num, sum, gameHistory를 부모 컴포넌트로부터 props로 전달받는다.
+- 부모 컴포넌트는 모든 함수를 받아서 처리하고 처리된 값을 자식 컴포넌트로 내려준다.
+
+```
+function Board({ name, color, num, sum, gameHistory }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <Dice color={color} num={num} />
+      <h2>총점</h2>
+      <p>{sum}</p>
+      <p>{gameHistory.join(",")}</p>
+    </div>
+  );
+}
+```
