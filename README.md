@@ -263,3 +263,8 @@ function Button({ children, onClick, color }) {
   );
 }
 ```
+
+## 25. CSS 클래스 네임
+
+- 버튼의 내부적인 스타일은 버튼 내부에서 다루지만, margin과 같이 요소에 외부적 영향을 주는 스타일 속성은 App컴포넌트에서 다루는 것이 좋다.
+- className 속성과 prop을 잘 활용하면 컴포넌트를 재사용하고 디자인을 입히는데 큰 도움이 된다.
